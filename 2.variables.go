@@ -4,12 +4,12 @@ import "fmt"
 
 func main() {
 	// Declare a variable with explicit type
-	var message string = "Welcome to Go!"
-	fmt.Println(message)
+	var name string = "Chandrasekhar"
+	fmt.Println(name)
 
 	// Short variable declaration (type inferred)
-	number := 42
-	fmt.Println(number)
+	my_number := 17
+	fmt.Println(my_number)
 
 	// Multiple types
 	var pi float64 = 3.1415
