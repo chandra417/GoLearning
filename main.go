@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strings"
+)
 
 func add(a int, b int) int {
 	return a + b
@@ -22,37 +26,51 @@ func main() {
 	fmt.Println("Hello, World!")
 	fmt.Println("This is my first commit")
 
-	// VARIABLE: Integer
+	fmt.Print("====================================================\n")
+	fmt.Print("			// VARIABLE: Integer\n")
+	fmt.Print("====================================================\n")
 	var a int = 10 // Standard integer
 	var b int64 = 12345678912345
 	var c uint = 20 // Unsigned integer (no negatives)
 	fmt.Println(a, b, c)
 
-	// VARIABLE: Floating	-	Use float32 or float64 for decimals (64-bit is default).
+	fmt.Print("====================================================\n")
+	fmt.Print("			// VARIABLE: Floating\t-\tUse float32 or float64 for decimals (64-bit is default).\n")
+	fmt.Print("====================================================\n")
 	var pi float64 = 3.14159
 	area := 5.5 * 7.4 // float64 inferred
 	fmt.Println(pi, area)
 
-	// VARIABLE: Boolean	-	Booleans are true or false.
+	fmt.Print("====================================================\n")
+	fmt.Print("			// VARIABLE: Boolean\t-\tBooleans are true or false.\n")
+	fmt.Print("====================================================\n")
 	var isReady bool = true
 	done := false
 	fmt.Println(isReady, done)
 
-	// VARIABLE: string	-	Strings are sequences of characters.
+	fmt.Print("====================================================\n")
+	fmt.Print("			// VARIABLE: string\t-\tStrings are sequences of characters.\n")
+	fmt.Print("====================================================\n")
 	var name string = "Chandrasekhar"
 	msg := "Welcome to Go!"
 	fmt.Println(name, msg)
 
-	// VARIABLE: Array	-	Arrays have a fixed length defined at creation.
+	fmt.Print("====================================================\n")
+	fmt.Print("			// VARIABLE: Array\t-\tArrays have a fixed length defined at creation.\n")
+	fmt.Print("====================================================\n")
 	var arr [3]int = [3]int{10, 20, 30} // Fixed size
 	fmt.Println(arr)
 
-	// VARIABLE: Slice	-	Slices are dynamic arrays (most used for lists).
+	fmt.Print("====================================================\n")
+	fmt.Print("			// VARIABLE: Slice\t-\tSlices are dynamic arrays (most used for lists).\n")
+	fmt.Print("====================================================\n")
 	nums := []int{1, 2, 3, 4, 5} // Flexible, like an arraylist
 	nums = append(nums, 6)       // Add more items
 	fmt.Println(nums)
 
-	// VARIABLE: Map	-	Maps are key-value stores.
+	fmt.Print("====================================================\n")
+	fmt.Print("			// VARIABLE: Map\t-\tMaps are key-value stores.\n")
+	fmt.Print("====================================================\n")
 	capitals := map[string]string{
 		"India":   "New Delhi",
 		"France":  "Paris",
@@ -79,7 +97,9 @@ func main() {
 		fmt.Printf("Country: %s, Capital: %s\n", country, capital)
 	}
 
-	// VARIABLE: Struct
+	fmt.Print("====================================================\n")
+	fmt.Print("			// VARIABLE: Struct\n")
+	fmt.Print("====================================================\n")
 	type Person struct {
 		Name string
 		Age  int
@@ -88,4 +108,22 @@ func main() {
 	p := Person{Name: "Alice", Age: 30}
 	fmt.Println(p.Name, p.Age)
 
+	fmt.Print("====================================================\n")
+	fmt.Print("			// CLI word count from a file\n")
+	fmt.Print("====================================================\n")
+	if len(os.Args) < 2 {
+		fmt.Println("Usage: go run main.go filename.txt")
+		return
+	}
+	filename := os.Args[1]
+	contents, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Printf("Error reading %s: %s\n", filename, err)
+		return
+	}
+
+	text := string(contents)
+	words := strings.Fields(text)
+	fmt.Printf("Word Count: %d\n", len(words))
+	fmt.Print("====================================================\n")
 }
