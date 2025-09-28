@@ -14,12 +14,13 @@ func multiply(a int, b int) int {
 	return a * b
 }
 
-func oddEven(a int) string {
-	if a%2 == 0 {
-		return fmt.Sprintf("%d is a even number\n", a)
-	} else {
-		return fmt.Sprintf("%d is a odd number\n", a)
-	}
+func oddNumber(a int) bool {
+	return a%2 != 0
+}
+
+func wordCount(text string) int {
+	words := strings.Fields(text)
+	return len(words)
 }
 
 func main() {
@@ -111,7 +112,7 @@ func main() {
 	fmt.Print("====================================================\n")
 	fmt.Print("			// CLI word count from a file\n")
 	fmt.Print("====================================================\n")
-	if len(os.Args) < 2 {
+	if len(os.Args) < 2 || os.Args[1] == "-h" || os.Args[1] == "--help" {
 		fmt.Println("Usage: go run main.go filename.txt")
 		return
 	}
@@ -123,7 +124,7 @@ func main() {
 	}
 
 	text := string(contents)
-	words := strings.Fields(text)
-	fmt.Printf("Word Count: %d\n", len(words))
+	wordCount := wordCount(text)
+	fmt.Printf("Word Count: %d\n", wordCount)
 	fmt.Print("====================================================\n")
 }

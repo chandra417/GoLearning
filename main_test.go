@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -36,10 +35,22 @@ func TestSumOfNumbers(t *testing.T) {
 	}
 }
 
-func TestOddEvenNumbers(t *testing.T) {
+func TestOddNumbers(t *testing.T) {
 
-	nums := []int{1, 2, 3, 4, 5, 6, 7, 8}
+	var nums = [4]int{1, 3, 5, 8}
 	for _, n := range nums {
-		fmt.Println(oddEven(n))
+		odd := oddNumber(n)
+		if !odd {
+			t.Errorf("odd = %d; want %t", n, true)
+		}
+	}
+}
+
+func TestWordCount(t *testing.T) {
+	var text string = "My name is chandra sekhar. I'm learning GO language."
+	wordCount := wordCount(text)
+	want := 9
+	if wordCount != want {
+		t.Errorf("wordCount = %d; want %d", wordCount, want)
 	}
 }
