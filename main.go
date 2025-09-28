@@ -44,41 +44,69 @@ func main() {
 	fmt.Println(a, b, c)
 
 	fmt.Print("====================================================\n")
-	fmt.Print("			// VARIABLE: Floating\t-\tUse float32 or float64 for decimals (64-bit is default).\n")
+	fmt.Print("			// VARIABLE: Floating - Use float32 or float64 for decimals (64-bit is default).\n")
 	fmt.Print("====================================================\n")
 	var pi float64 = 3.14159
 	area := 5.5 * 7.4 // float64 inferred
 	fmt.Println(pi, area)
 
 	fmt.Print("====================================================\n")
-	fmt.Print("			// VARIABLE: Boolean\t-\tBooleans are true or false.\n")
+	fmt.Print("			// VARIABLE: Boolean - Booleans are true or false.\n")
 	fmt.Print("====================================================\n")
 	var isReady bool = true
 	done := false
 	fmt.Println(isReady, done)
 
 	fmt.Print("====================================================\n")
-	fmt.Print("			// VARIABLE: string\t-\tStrings are sequences of characters.\n")
+	fmt.Print("			// VARIABLE: string - Strings are sequences of characters.\n")
 	fmt.Print("====================================================\n")
 	var name string = "Chandrasekhar"
 	msg := "Welcome to Go!"
 	fmt.Println(name, msg)
 
 	fmt.Print("====================================================\n")
-	fmt.Print("			// VARIABLE: Array\t-\tArrays have a fixed length defined at creation.\n")
+	fmt.Print("			// VARIABLE: Array - Arrays have a fixed length defined at creation.\n")
 	fmt.Print("====================================================\n")
-	var arr [3]int = [3]int{10, 20, 30} // Fixed size
+
+	var arr = [3]int{10, 20, 30} // Fixed size
+	var arrayNums [5]int         //This creates an array of 5 integers, all initialized to zero.
+	var arrayNames = [3]string{"A", "B", "C"}
+	var arrayActualNums = [5]int{1, 2, 3, 4, 5}
+
 	fmt.Println(arr)
+	fmt.Println(arrayNums)
+	fmt.Println(arrayNames)
+	fmt.Println(arrayActualNums)
 
 	fmt.Print("====================================================\n")
-	fmt.Print("			// VARIABLE: Slice\t-\tSlices are dynamic arrays (most used for lists).\n")
+	fmt.Print("			// VARIABLE: Slice - Slices are dynamic arrays (most used for lists).\n")
 	fmt.Print("====================================================\n")
 	nums := []int{1, 2, 3, 4, 5} // Flexible, like an arraylist
 	nums = append(nums, 6)       // Add more items
 	fmt.Println(nums)
 
+	var scores []int
+	scores = []int{30, 40, 20, 33}
+	fmt.Println(scores)
+
+	fmt.Println(scores[1:3])
+
+	// Few examples
+	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	fmt.Println(len(s))
+	fmt.Println(cap(s))
+
+	s = append(s, 10, 11)
+	fmt.Println(s)
+
+	test := make([]int, 2)
+	new_test := []int{100, 200}
+
+	copy(test, new_test)
+	fmt.Println(test)
+
 	fmt.Print("====================================================\n")
-	fmt.Print("			// VARIABLE: Map\t-\tMaps are key-value stores.\n")
+	fmt.Print("			// VARIABLE: Map - Maps are key-value stores.\n")
 	fmt.Print("====================================================\n")
 	capitals := map[string]string{
 		"India":   "New Delhi",
@@ -107,15 +135,19 @@ func main() {
 	}
 
 	fmt.Print("====================================================\n")
-	fmt.Print("			// VARIABLE: Struct\n")
+	fmt.Print("			// VARIABLE: Struct - Used to define custom data structures—like classes without methods.\n")
 	fmt.Print("====================================================\n")
 	type Person struct {
 		Name string
 		Age  int
 	}
 
-	p := Person{Name: "Alice", Age: 30}
-	fmt.Println(p.Name, p.Age)
+	p1 := Person{Name: "rob", Age: 30}
+	p2 := Person{Name: "bob", Age: 20}
+	p3 := Person{Name: "pop", Age: 10}
+	fmt.Println(p1.Name, p1.Age)
+	fmt.Println(p2.Name, p2.Age)
+	fmt.Println(p3.Name, p3.Age)
 
 	fmt.Print("====================================================\n")
 	fmt.Print("			// CLI word count from a file\n")
@@ -128,6 +160,7 @@ func main() {
 	contents, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Printf("Error reading %s: %s\n", filename, err)
+		os.Exit(1)
 		return
 	}
 
