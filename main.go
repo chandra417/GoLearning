@@ -23,6 +23,14 @@ func wordCount(text string) int {
 	return len(words)
 }
 
+func charCount(text string) int {
+	return len(text)
+}
+
+func lineCount(text string) int {
+	return len(strings.Split(text, "\n"))
+}
+
 func main() {
 	fmt.Println("Hello, World!")
 	fmt.Println("This is my first commit")
@@ -126,5 +134,12 @@ func main() {
 	text := string(contents)
 	wordCount := wordCount(text)
 	fmt.Printf("Word Count: %d\n", wordCount)
+
+	charCount := charCount(text)
+	fmt.Printf("Char Count: %d\n", charCount)
+
+	lineCount := lineCount(text)
+	fmt.Printf("Line Count: %d\n", lineCount)
+
 	fmt.Print("====================================================\n")
 }

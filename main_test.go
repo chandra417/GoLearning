@@ -37,7 +37,7 @@ func TestSumOfNumbers(t *testing.T) {
 
 func TestOddNumbers(t *testing.T) {
 
-	var nums = [4]int{1, 3, 5, 8}
+	var nums = [4]int{1, 3, 5, 7}
 	for _, n := range nums {
 		odd := oddNumber(n)
 		if !odd {
@@ -52,5 +52,23 @@ func TestWordCount(t *testing.T) {
 	want := 9
 	if wordCount != want {
 		t.Errorf("wordCount = %d; want %d", wordCount, want)
+	}
+}
+
+func TestCharCount(t *testing.T) {
+	var text string = "Hello"
+	charCount := charCount(text)
+	want := 5
+	if charCount != want {
+		t.Errorf("charCount = %d; want %d", charCount, want)
+	}
+}
+
+func TestLineCount(t *testing.T) {
+	var text string = "Hello\n World"
+	lineCount := lineCount(text)
+	want := 2
+	if lineCount != want {
+		t.Errorf("lineCount = %d; want %d", lineCount, want)
 	}
 }
