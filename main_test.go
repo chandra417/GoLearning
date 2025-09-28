@@ -6,6 +6,7 @@ import (
 )
 
 func TestAdd(t *testing.T) {
+
 	got := add(2, 3)
 	want := 5
 	if got != want {
@@ -14,6 +15,7 @@ func TestAdd(t *testing.T) {
 }
 
 func TestMultiply(t *testing.T) {
+
 	got := multiply(2, 3)
 	want := 6
 	if got != want {
@@ -22,6 +24,7 @@ func TestMultiply(t *testing.T) {
 }
 
 func TestSumOfNumbers(t *testing.T) {
+
 	nums := []int{1, 2, 3}
 	sum := 0
 
@@ -34,7 +37,7 @@ func TestSumOfNumbers(t *testing.T) {
 }
 
 func TestOddEvenNumbers(t *testing.T) {
-	
+
 	nums := []int{1, 2, 3, 4, 5, 6, 7, 8}
 	for _, n := range nums {
 		fmt.Println(oddEven(n))
